@@ -1,13 +1,18 @@
 const express = require('express');
 const router = express.Router();
 const { signup } = require('../controllers/authController');
+const requireAuth = require('../middleware/authMiddleware');
 
-// Test Route
-router.get('/test', (req, res) => {
-    res.json({ message: 'Auth route working!' });
+// Public routes
+router.post('/signup', signup);
+
+
+
+// Protected test routes
+router.get('/me', requireAuth, (req, res) => {
+    res.json({ message: 'You are authenticated', userID: req.user });
 });
 
-// Signup route
-router.post('/signup', signup);
+
 
 module.exports = router;
