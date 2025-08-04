@@ -8,9 +8,13 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// Import and use routes
+// Import routes
 const authRoutes = require('./routes/authRoutes');
+const profileRoutes = require('./routes/profileRoutes');
+
+// Use routes
 app.use('/api/auth', authRoutes);
+app.use('/api/profile', profileRoutes);
 
 // Connect database
 mongoose.connect(process.env.MONGO_URI)

@@ -7,16 +7,9 @@ const requireAuth = require('../middleware/authMiddleware');
 router.post('/signup', signup);
 router.post('/login', login);
 
-
-
 // Protected test routes
 router.get('/me', requireAuth, (req, res) => {
     res.json({ message: 'You are authenticated', userID: req.user });
 });
-
-// add profile
-// add posts
-// add reactions
-
 
 module.exports = router;
