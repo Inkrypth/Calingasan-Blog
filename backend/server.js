@@ -12,11 +12,13 @@ app.use(express.json());
 const authRoutes = require('./routes/authRoutes');
 const profileRoutes = require('./routes/profileRoutes');
 const postRoutes = require('./routes/postRoutes');
+const reactionRoutes = require('./routes/reactionRoutes');
 
 // Use routes
 app.use('/api/auth', authRoutes);
 app.use('/api/profile', profileRoutes);
 app.use('/api/posts', postRoutes);
+app.use('/api/reactions', reactionRoutes);
 
 // Connect database
 mongoose.connect(process.env.MONGO_URI)
