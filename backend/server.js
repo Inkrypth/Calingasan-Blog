@@ -11,10 +11,12 @@ app.use(express.json());
 // Import routes
 const authRoutes = require('./routes/authRoutes');
 const profileRoutes = require('./routes/profileRoutes');
+const postRoutes = require('./routes/postRoutes');
 
 // Use routes
 app.use('/api/auth', authRoutes);
 app.use('/api/profile', profileRoutes);
+app.use('/api/posts', postRoutes);
 
 // Connect database
 mongoose.connect(process.env.MONGO_URI)
