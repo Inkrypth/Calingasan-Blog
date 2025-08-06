@@ -27,3 +27,6 @@ npm start
 Frontend: http://localhost:3000
 Backend (API): http://localhost:5000/api
 
+API Documentation
+https://documenter.getpostman.com/view/31288921/2sB3BBqs6n
+
