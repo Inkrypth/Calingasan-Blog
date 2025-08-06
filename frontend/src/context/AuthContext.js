@@ -1,9 +1,9 @@
-import { createContext, useState, useEffect } from 'react';
+import { createContext, useState } from 'react';
 import { getToken } from '../hooks/useAuthToken';
 
 export const AuthContext = createContext();
 
-export const AuthProvider = ({ Children }) => {
+export const AuthProvider = ({ children }) => {
     const [token, setTokenState] = useState(getToken());
 
     const login = (newToken) => {
@@ -18,7 +18,7 @@ export const AuthProvider = ({ Children }) => {
 
     return (
         <AuthContext.Provider value={{ token, login, logout }}>
-            (children)
+            {children}
         </AuthContext.Provider>
     );
 };
