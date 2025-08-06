@@ -9,11 +9,11 @@ const {
 } = require('../controllers/postController');
 
 // Public: Display all posts
-router.get('/', getAllPosts);
+router.get('/get', getAllPosts);
 
 // Protected
-router.post('/', requireAuth, createPost);
-router.patch('/:id', requireAuth, updatePost);
-router.delete('/:id', requireAuth, deletePost);
+router.post('/create', requireAuth, createPost);
+router.patch('/update/:id', requireAuth, updatePost);
+router.delete('/delete/:id', requireAuth, deletePost);
 
 module.exports = router;

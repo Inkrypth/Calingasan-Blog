@@ -1,8 +1,11 @@
 import { useEffect, useState, useContext } from "react";
 import api from '../api';
 import { AuthContext } from "../context/AuthContext";
+import ProfileButton from "../components/ProfileButton";
 import LogoutButton from "../components/LogoutButton";
 import LoginButton from "../components/LoginButton";
+import SignupButton from "../components/SignupButton";
+import CreatePostButton from "../components/CreatePostButton";
 
 const HomePage = () => {
     const [posts, setPosts] = useState([]);
@@ -11,7 +14,7 @@ const HomePage = () => {
 
     const fetchPosts = async () => {
         try {
-            const res = await api.get('/posts');
+            const res = await api.get('/posts/get');
             setPosts(res.data);
         } catch(err) {
             setError('Failed to load posts');
@@ -38,8 +41,13 @@ const HomePage = () => {
 
     return (
         <div className="container">
-            {token && <LogoutButton />}
-            {!token && <LoginButton />}
+            {token && <CreatePostButton />}
+            <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
+                {token && <ProfileButton />}
+                {token && <LogoutButton />}
+                {!token && <LoginButton />}
+                {!token && <SignupButton />}
+            </div>
             
             <h2>All Blog Posts</h2>
             {error && <p className="error">{error}</p>}

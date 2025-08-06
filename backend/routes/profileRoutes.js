@@ -4,7 +4,7 @@ const { getProfile, updateProfile } = require('../controllers/profileController'
 const requireAuth = require('../middleware/authMiddleware');
 
 // Protected Routes
-router.get('/', requireAuth, getProfile);
-router.patch('/', requireAuth, updateProfile);
+router.get('/getProfile', requireAuth, getProfile);
+router.patch('/updateProfile', requireAuth, updateProfile);
 
 module.exports = router;
