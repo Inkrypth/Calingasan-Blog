@@ -23,3 +23,7 @@ npm start
 cd frontend
 npm start
 (use multiple terminals)
+
+Frontend: http://localhost:3000
+Backend (API): http://localhost:5000/api
+
