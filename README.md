@@ -1,3 +1,19 @@
+Backend Libraries
+1. express
+2. mongoose
+3. dotenv
+4. cors
+5. bcrypt
+6. jsonwebtoken
+7. nodemon
+
+Frontend Libraries
+1. react
+2. react-dom
+3. react-router-dom
+4. axios
+
+
 1. Clone repo
 git clone https://github.com/Inkrypth/Calingasan-Blog.git
 cd Calingasan-Blog
@@ -6,6 +22,11 @@ cd Calingasan-Blog
 //Backend
 cd backend
 npm install
+npm install express mongoose dotenv cors bcrypt jsonwebtoken
+npm install --save-dev nodemon
+
+//Frontend
+npm install react react-dom react-router-dom axios
 
 //Frontend
 cd frontend
