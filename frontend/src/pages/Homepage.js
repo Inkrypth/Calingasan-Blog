@@ -1,6 +1,8 @@
 import { useEffect, useState, useContext } from "react";
 import api from '../api';
 import { AuthContext } from "../context/AuthContext";
+import LogoutButton from "../components/LogoutButton";
+import LoginButton from "../components/LoginButton";
 
 const HomePage = () => {
     const [posts, setPosts] = useState([]);
@@ -23,19 +25,22 @@ const HomePage = () => {
 
     const handleReaction = async (postId, type) => {
         try {
-            await api.post(`/api/reactions/like/${postId}`, { type }, {
+            await api.post(`/reactions/${type}/${postId}`, {}, {
                 headers: {
                     Authorization: `Bearer ${token}`,
                 },
             });
             fetchPosts();
         } catch(err) {
-            console.error("Reaction failed", err);
+            console.error(`Failed to ${type}`, err);
         }
     };
 
     return (
         <div className="container">
+            {token && <LogoutButton />}
+            {!token && <LoginButton />}
+            
             <h2>All Blog Posts</h2>
             {error && <p className="error">{error}</p>}
 
